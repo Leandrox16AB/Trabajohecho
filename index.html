@@ -20,15 +20,28 @@
       overflow-x: hidden;
     }
 
-    #video-fondo {
+    /* VIDEO DE FONDO DE YOUTUBE */
+    #youtube-background {
       position: fixed;
       top: 0;
       left: 0;
-      min-width: 100%;
-      min-height: 100%;
+      width: 100vw;
+      height: 100vh;
       z-index: -1;
-      object-fit: cover;
-      opacity: 0.5;
+      overflow: hidden;
+      pointer-events: none;
+    }
+
+    #youtube-background iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 120vw;
+      height: 67.5vw; /* relación 16:9 */
+      max-height: 120vh;
+      transform: translate(-50%, -50%);
+      opacity: 0.75;
+      pointer-events: none;
     }
 
     .titulo-proyecto {
@@ -80,7 +93,6 @@
       box-shadow: 0 0 10px #00eaff;
     }
 
-    /* MENÚ PRINCIPAL */
     .menu {
       display: flex;
       justify-content: center;
@@ -195,7 +207,6 @@
       font-weight: bold;
     }
 
-    /* GIFS ANIMADOS */
     .gif-container {
       display: flex;
       justify-content: center;
@@ -219,11 +230,15 @@
   </style>
 </head>
 <body>
-  <!-- VIDEO DE FONDO -->
-  <video id="video-fondo" autoplay loop muted>
-    <source src="Fondo1.mp4" type="video/mp4">
-    Tu navegador no soporta videos HTML5.
-  </video>
+
+  <!-- VIDEO DE FONDO YOUTUBE -->
+  <div id="youtube-background">
+    <iframe src="https://www.youtube.com/embed/YhNjL5hROf8?autoplay=1&mute=1&controls=0&loop=1&playlist=YhNjL5hROf8&modestbranding=1&showinfo=0&rel=0"
+            frameborder="0"
+            allow="autoplay; fullscreen"
+            allowfullscreen>
+    </iframe>
+  </div>
 
   <!-- TÍTULO -->
   <div class="titulo-proyecto">
